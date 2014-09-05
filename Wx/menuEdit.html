@@ -1,0 +1,43 @@
+<include file="Public:header" />
+<div class="tabs">
+    <ul>
+        <li class="current"><a href="javascript:void(0)" class="current">菜单</a></li>
+    </ul>
+</div>
+<div class="edit">
+    <form method="post" action="{:U('Admin/Wx/menuDoEdit')}" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$info.id}">
+        <dl>
+            <dt>新闻分类：</dt>
+            <dd><select name="id" value="{$info.id}">
+                <!-- volist 作用：循环输出数组 -->
+                <volist name="mainList" id="name">
+                    <option value="{$info.id}" <eq name="info[id]" value="$info[id]">selected</eq>>{$info.name}</option>
+                </volist>
+            </select></dd>
+        </dl>
+        <dl>
+            <dt>菜单名称：</dt>
+            <dd><input type="text" name="name" class="w200" value="{$info.name}" /></dd>
+        </dl>
+        <dl>
+            <dt>菜单类型：</dt>
+            <dd><input type="text" name="type" class="w200" value="{$info.type}" /></dd>
+        </dl>
+        <dl>
+            <dt>菜单值：</dt>
+            <dd><input type="text" name="value" class="w200" value="{$info.value}" /></dd>
+        </dl>
+        <dl>
+            <dt>排序：</dt>
+            <dd><input type="number" name="sort" value="{$info.sort}" class="w200" /></dd>
+        </dl>
+        <dl>
+            <dt></dt>
+            <dd><input type="submit" value="更 新" class="btn submit-btn" /></dd>
+        </dl>
+    </form>
+</div>
+<include file="Public:footer" />
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.js"></script>

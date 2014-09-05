@@ -1,0 +1,40 @@
+<include file="Public:header" />
+<div class="tabs">
+    <ul>
+        <li class="current"><a href="javascript:void(0)" class="current">添加菜单信息</a></li>
+    </ul>
+</div>
+<div class="edit">
+    <form method="post" action="{:U('Admin/Wx/menuDoAdd')}" enctype="multipart/form-data">
+        <dl>
+            <dt>菜单分类：</dt>
+            <dd><select name="pid" value="{$info.pid}">
+                <!-- volist 作用：循环输出数组 -->
+                <volist name="menuList" id="menu">
+                    <option value="{$menu.id}">{$menu.name}</option>
+                </volist>
+            </select></dd>
+        </dl>
+        <dl>
+            <dt>菜单名称：</dt>
+            <dd><input type="text" name="name" value="" class="w200" /></dd>
+        </dl>
+        <dl>
+            <dt>菜单类型：</dt>
+            <dd><input type="text" name="type" value="" class="w200" /></dd>
+        </dl>
+        <dl>
+            <dt>菜单值：</dt>
+            <dd><input type="text" name="value" value="" class="w200" /></dd>
+        </dl>
+        <dl>
+            <dt>排序：</dt>
+            <dd><input type="number" name="sort" value="" class="w200" /></dd>
+        </dl>
+        <dl>
+            <dt></dt>
+            <dd><input type="submit" value="添 加" class="btn submit-btn" /></dd>
+        </dl>
+    </form>
+</div>
+<include file="Public:footer" />

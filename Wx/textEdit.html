@@ -1,0 +1,30 @@
+<include file="Public:header" />
+<div class="tabs">
+    <ul>
+        <li class="current"><a href="javascript:void(0)" class="current">文本回复</a></li>
+    </ul>
+</div>
+<div class="edit">
+    <form method="post" action="{:U('Admin/Wx/textDoEdit')}" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$info.id}">
+        <input type="hidden" name="route_id" value="{$routeInfo.id}">
+        <dl>
+            <dt>关键字：</dt>
+            <dd><input type="text" name="keyword" class="w200" value="{$routeInfo.keyword}" /></dd>
+        </dl>
+        <dl>
+            <dt>回复内容：</dt>
+            <dd><textarea name="content" cols="80" rows="4">{$info.content}</textarea></dd>
+        </dl>
+        <dl>
+            <dt></dt>
+            <dd><input type="submit" value="更 新" class="btn submit-btn" /></dd>
+        </dl>
+    </form>
+</div>
+<include file="Public:footer" />
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+UE.getEditor('editor');
+</script>

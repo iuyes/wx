@@ -1,0 +1,41 @@
+<include file="../Public/header" />
+  <!--选项卡 BEGIN-->
+  <div class="tabs">
+    <ul>
+      <li><a href="javascript:void(0)" class="current">基本信息</a></li>
+    </ul>
+  </div>
+  <!--END 选项卡-->
+  <!--编辑表单 BEGIN-->
+  <div class="edit">
+      <form action="{:U('Wx/doSet')}" method="post" enctype="multipart/form-data">
+        <dl>
+          <dt>URL:</dt>
+          <dd></dd>
+        </dl>
+      <dl>
+        <dt>TOKEN：</dt>
+        <dd>
+          <input type="text" name="token"  value="{$token}" class="w250" />
+        </dd>
+      </dl>
+      <dl>
+        <dt>APPKEY：</dt>
+        <dd>
+          <input type="text" name="appkey" value="{$appkey}" />
+        </dd>
+      </dl>
+      <dl>
+        <dt>APPSECRECT：</dt>
+        <dd>
+          <input type="text" name="appsecrect"  value="{$appsecrect}" />
+        </dd>
+      </dl>
+      <dl>
+        <dt>&nbsp;</dt>
+        <dd><input type="submit"  value="提 交" class="btn submit-btn" /></dd>
+      </dl>
+    </form>
+  </div>
+  <!--END 编辑表单-->
+<include file="../Public/footer" />
