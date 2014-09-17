@@ -2,7 +2,7 @@
 /**
  * 微信数据模型
  */
-class WxModel extends Model
+class Wx
 {
 	public function valid()
     {
@@ -50,13 +50,14 @@ class WxModel extends Model
             //$keyword = trim($postObj->Content);
             $time = time();
             if(!empty( $keyword ))
-            {   
-            	$replayType = D('Route')->where("keyword='".$keyword."'")->getField('obj_type');
-            	$replayId = D('Route')->where("keyword='".$keyword."'")->getField('obj_id');
+            {
+                $sql = "select obj_type, obj_id from route where `keyword`='".$keyword."'";
+                $result = mysqli_query($mysqli, $sql);
             	$tpl = $this->getTpl();
             	//如果replayType不为空 那就判断replayType是text还是txp
-            	if(!empty($replayType)){
+            	if(!empty($result['obj_type'])){
             		if($replayType == 'text'){
+                        $contentStr = mysqli_query($mysqli, "select content")
             			$contentStr = D('Text')->where("id='".$replayId."'")->getField('content');
             			$msgType = "text";
                     	$tpl .= "<Content><![CDATA[".$contentStr."]]></Content></xml>";
